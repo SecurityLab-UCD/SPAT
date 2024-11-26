@@ -165,7 +165,7 @@ public class Utils {
 	            if (!f.exists()) {
 	                boolean i = f.mkdirs();
 	                if (i) {
-	                    //log.info("²ã¼¶ÎÄ¼þ¼Ð´´½¨³É¹¦£¡");
+	                    //log.info("ï¿½ã¼¶ï¿½Ä¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½");
 	                } else {
 	                    System.out.println("Dir make failed!");
 	                }
@@ -279,8 +279,12 @@ public class Utils {
 	public static String sublizeOutput(String filePath, String dirPath, String outputdir) {
 		// TODO Auto-generated method stub
 		int ender = dirPath.length();
-		String [] parts = filePath.split("\\\\");
-		String newDirPath = outputdir + parts[parts.length-1];
+        // For Windows
+        // String [] parts = filePath.split("\\\\");
+        // String newDirPath = outputdir + parts[parts.length-1];
+        // For Linux
+		String [] parts = filePath.split("/");
+		String newDirPath = outputdir + "/" + parts[parts.length-1];
 		//mkfatherdir(newDirPath);
 		return newDirPath;
 	}
