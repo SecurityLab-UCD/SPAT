@@ -28,9 +28,9 @@ class n4866624 {
 			bo = false;
 		}
 		if (bo)
-			log.info("L'usuari {0} s'ha identificat b¨¦? : {1} ", credentials.getUsername(), "si");
+			log.info("L'usuari {0} s'ha identificat bï¿½ï¿½? : {1} ", credentials.getUsername(), "si");
 		else
-			log.info("L'usuari {0} s'ha identificat b¨¦? : {1} ", credentials.getUsername(), "no");
+			log.info("L'usuari {0} s'ha identificat bï¿½ï¿½? : {1} ", credentials.getUsername(), "no");
 		return bo;
 	}
 

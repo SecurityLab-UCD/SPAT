@@ -6,7 +6,7 @@ class n961457 {
 			validado = validar();
 		}
 		if (!validado) {
-			throw new Exception("No s'ha realitzat la validaci¨® de les dades del registre ");
+			throw new Exception("No s'ha realitzat la validaciï¿½ï¿½ de les dades del registre ");
 		}
 		registroActualizado = false;
 		try {

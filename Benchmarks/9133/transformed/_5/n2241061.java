@@ -6,8 +6,8 @@ class n2241061 {
 		FGDDelegate delegate = new FGDDelegate();
 		UtilisateurIFGD utilisateur = delegate.getUtilisateurParCourriel(from);
 		if (utilisateur == null) {
-			String responseEmailSubject = "Votre adresse ne correspond pas ¨¤ celle d'un utilisateur d'IntelliGID";
-			String responseEmailMessage = "<h3>Pour sauvegarder un courriel, vous devez ¨ºtre un utilisateur d'IntelliGID et l'adresse de courrier ¨¦lectronique utilis¨¦e doit ¨ºtre celle apparaissant dans votre profil.</h3>";
+			String responseEmailSubject = "Votre adresse ne correspond pas ï¿½ï¿½ celle d'un utilisateur d'IntelliGID";
+			String responseEmailMessage = "<h3>Pour sauvegarder un courriel, vous devez ï¿½ï¿½tre un utilisateur d'IntelliGID et l'adresse de courrier ï¿½ï¿½lectronique utilisï¿½ï¿½e doit ï¿½ï¿½tre celle apparaissant dans votre profil.</h3>";
 			String sender;
 			if (recipient.endsWith("localhost"))
 				sender = FGDSpringUtils.getExpediteurSupport();
@@ -57,9 +57,9 @@ class n2241061 {
 		String modifyEmail = "http://" + FGDSpringUtils.getServerHost() + ":" + FGDSpringUtils.getServerPort() + "/"
 				+ FGDSpringUtils.getApplicationName() + "/app/modifierDocument/id/" + ficheDocument.getId();
 		System.out.println(modifyEmail);
-		String responseEmailSubject = "Veuillez compl¨¦ter la fiche du courriel ?" + subject + "?";
-		String responseEmailMessage = "<h3>Le courrier ¨¦lectronique a ¨¦t¨¦ sauvegard¨¦, mais il est n¨¦cessaire de <a href=\""
-				+ modifyEmail + "\">compl¨¦ter sa fiche</a>.</h3>";
+		String responseEmailSubject = "Veuillez complï¿½ï¿½ter la fiche du courriel ?" + subject + "?";
+		String responseEmailMessage = "<h3>Le courrier ï¿½ï¿½lectronique a ï¿½ï¿½tï¿½ï¿½ sauvegardï¿½ï¿½, mais il est nï¿½ï¿½cessaire de <a href=\""
+				+ modifyEmail + "\">complï¿½ï¿½ter sa fiche</a>.</h3>";
 		String sender;
 		if (recipient.endsWith("localhost"))
 			sender = FGDSpringUtils.getExpediteurSupport();

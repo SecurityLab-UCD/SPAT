@@ -125,7 +125,7 @@ class n17773263 {
 				if (conn != null)
 					conn.rollback();
 				else
-					System.out.println("ERROR: No es pot fer rollback sense connexi¨®!");
+					System.out.println("ERROR: No es pot fer rollback sense connexiï¿½ï¿½!");
 			} catch (Exception ex) {
 				System.out.println("Error: " + e.getMessage());
 				ex.printStackTrace();

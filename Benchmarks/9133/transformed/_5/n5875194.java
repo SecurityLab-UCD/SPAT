@@ -20,7 +20,7 @@ class n5875194 {
 				folderfile.mkdirs();
 			}
 		} else {
-			throw new FileNotFoundException("²»´æÔÚ zip ÎÄ¼þ");
+			throw new FileNotFoundException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ zip ï¿½Ä¼ï¿½");
 		}
 		ZipFile zipFile = new ZipFile(file);
 		try {

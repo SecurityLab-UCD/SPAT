@@ -117,8 +117,8 @@ class n1989226 {
 				throw new RemoteException("S'ha produ?t un error i no s'han pogut tornar enrere els canvis efectuats",
 						sqle);
 			}
-			throw new RemoteException("Error inesperat, no s'ha actualitzat la taula de gesti¨® dels ofici de remissi¨®.",
-					ex);
+			throw new RemoteException(
+					"Error inesperat, no s'ha actualitzat la taula de gestiï¿½ï¿½ dels ofici de remissiï¿½ï¿½.", ex);
 		} finally {
 			ToolsBD.closeConn(conn, ms, null);
 		}
