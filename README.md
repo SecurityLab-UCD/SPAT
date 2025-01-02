@@ -1,4 +1,13 @@
-# SPAT
+# Modifications from original [SPAT](https://github.com/Santiago-Yu/SPAT)
+
+* Now uses java18
+
+## java18
+
+Steps are the same as below except for the argument `PathofJre`. It is replaced
+by the path of `lib`. An example is "/usr/lib/jvm/java-18-openjdk-amd64/lib"
+
+# SPAT (Original README)
 Semantic-and-Naturalness Preserving Auto Transformation. This tool is a source-to-source transformation tool that can deal with partial code snippets (programs without dependency information). The transformed code will be semantic-equivalent to the original ones, as well as syntax-naturalness-preserving.
 
 We have currently verified it on Windows10.
