@@ -1,7 +1,25 @@
 #!/bin/bash
-# run.sh 
+# run.sh [-l LIBPATH] [TEST_ID [BENCHMARK_NAME]]
+# Runs SPAT
 
-lib_path="/usr/lib/jvm/java-18-openjdk-amd64/lib"
+while getopts "l:" opt; do
+    case $opt in
+    l)
+        lib_path="${OPTARG}"
+        shift 2
+        ;;
+	\?)
+	    echo "Invalid option: -$OPTARG" >&2
+	    ;;
+    esac
+done
+if [[ "$#" -ge 3 ]]; then
+    echo "Illegal number of parameters" >&2
+    exit 1
+fi
+
+
+lib_path=${lib_path:-"/usr/lib/jvm/java-18-openjdk-amd64/lib"}
 
 # 0. LocalVarRenaming:
 # 1. For2While
@@ -21,14 +39,14 @@ lib_path="/usr/lib/jvm/java-18-openjdk-amd64/lib"
 # 15. SwitchStringEqual
 # 16. PrePostFixExpressionDividing
 # 17. Case2IfElse
-test_id=0
+test_id=${1:-0}
 
 # Assume default directory structure
 # Benchmarks
 # └── "$benchmark_name"
 #     ├── Original
 #     └── transformed
-benchmark_name="Java250"
+benchmark_name=${2:-"Java250"}
 
 java -jar ./artifacts/SPAT-linux.jar \
     "$test_id" \

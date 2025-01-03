@@ -2,10 +2,13 @@
 
 * Now uses java18
 
-## java18
+## java18 and `lib_path`
 
 Steps are the same as below except for the argument `PathofJre`. It is replaced
-by the path of `lib`. An example is "/usr/lib/jvm/java-18-openjdk-amd64/lib"
+by the path of `lib`. An example is "/usr/lib/jvm/java-18-openjdk-amd64/lib".
+This path can be found with `whereis java` and tracing to the directory of the
+original binary (instead of a symlink). The library folder is usually a sibling
+directory of the directory that contains the binary.
 
 # Building jar
 
@@ -13,6 +16,10 @@ Eclipse is used to develop and build the project. Click "File > Export" and
 select the option "Runnable JAR file". Use the "Noargs - RuleWriter" launch
 configuration and keep everything else as default. Click finish. The resulting
 .jar file should be saved in the "artifacts" folder
+
+# Running
+
+See [run.sh](run.sh).
 
 # SPAT (Original README)
 Semantic-and-Naturalness Preserving Auto Transformation. This tool is a
