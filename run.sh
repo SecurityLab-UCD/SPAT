@@ -18,7 +18,7 @@ if [[ "$#" -ge 3 ]]; then
     exit 1
 fi
 
-
+# See README#java18
 lib_path=${lib_path:-"/usr/lib/jvm/java-18-openjdk-amd64/lib"}
 
 # 0. LocalVarRenaming:
