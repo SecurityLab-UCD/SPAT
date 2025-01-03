@@ -7,6 +7,13 @@
 Steps are the same as below except for the argument `PathofJre`. It is replaced
 by the path of `lib`. An example is "/usr/lib/jvm/java-18-openjdk-amd64/lib"
 
+# Building jar
+
+Eclipse is used to develop and build the project. Click "File > Export" and
+select the option "Runnable JAR file". Use the "Noargs - RuleWriter" launch
+configuration and keep everything else as default. Click finish. The resulting
+.jar file should be saved in the "artifacts" folder
+
 # SPAT (Original README)
 Semantic-and-Naturalness Preserving Auto Transformation. This tool is a
 source-to-source transformation tool that can deal with partial code snippets
@@ -35,7 +42,7 @@ to be transformed. each ".java'' file is regarded as a code snippet. Each file
 should contain one Java class. For method-level code snippets, users need to
 warp each method with a "foo'' class.
 
-*[OutputDir]* is the directory path whre you want to store the transformed code
+*[OutputDir]* is the directory path where you want to store the transformed code
 snippets.
 
 *[PathofJre]* is the path of *rt.jar* (usually placed in
