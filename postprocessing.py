@@ -1,7 +1,9 @@
 # Organize a benchmark's original and processed entries into a jsonl file.
 from pathlib import Path
+from tqdm import tqdm
 import os
 import pandas as pd
+import json
 import argparse
 
 parser = argparse.ArgumentParser(
@@ -22,24 +24,16 @@ print(f'reading {META_PATH}...')
 with open(META_PATH, 'r') as f:
     meta_df = pd.read_json(f, lines=True)
 
-df = pd.DataFrame(columns = [*meta_df.columns.values.tolist(), 'transformed',
-                             'transform_type'])
-
-for dir in os.listdir(TRANSFORMED_PATH):
+for dir in tqdm(os.listdir(TRANSFORMED_PATH)):
     rule_id = int(dir.lstrip('_'))
-    for file in os.listdir(TRANSFORMED_PATH / dir):
+    for file in tqdm(os.listdir(TRANSFORMED_PATH / dir)):
         code_id = int(file.lstrip('n').rstrip('.java'))
         with open(TRANSFORMED_PATH / dir / file) as f:
             transformed = f.read()
-        entry = meta_df.iloc[code_id]
-        new_entry = pd.DataFrame([[
-            *entry,
-            transformed,
-            rule_id
-            ]], columns=df.columns)
-        df = pd.concat([df, new_entry], ignore_index=True)
-
-df.to_json(OUTPUT_PATH, orient='records', lines=True)
+        meta = meta_df.iloc[code_id]
+        entry = {**meta, "transformed": transformed, 'transform_type': rule_id}
+        with open(OUTPUT_PATH, 'a') as f:
+            f.write(f'{json.dumps(entry)}\n')
 
 # - repo: the owner/repo
 # - func_name: the function or method name
