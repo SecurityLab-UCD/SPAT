@@ -1,7 +1,7 @@
 # Modifications from original [SPAT](https://github.com/Santiago-Yu/SPAT)
 
 * Now uses java18
-* Add `run.sh`
+* Add `run.sh` for running SPAT. Usage is in the script itself.
 * Add `postprocessing.py` for compiling transformation result
 
 ## java18 and `lib_path`
@@ -27,11 +27,11 @@ Benchmark
 └── <benchmark_name>
     ├── Original
     └── transformed
-        ├── _<test_id>
+        ├── _<aug_id>
         │   ├── n<original_entry_id>.java
         │   ├── n<original_entry_id>.java
         │   ...
-        ├── _<test_id>
+        ├── _<aug_id>
         ...
 
 ```
@@ -39,7 +39,9 @@ Benchmark
 In this case, `benchmark_path` would be `Benchmark/<benchmark_name>`. The script
 will iterate through `transformed` subdirectory of the benchmark path. For each
 `.java` file, it will record an augmented entry, noting its augmentation type
-via the provided `<test_id>`.
+via the provided `<aug_id>`. The [Supported
+Transformations](#supported-transformations) section specifies an `aug_id` for
+each augmentation type.
 
 Additionally, the script will append extra data from the `metadata_jsonl`
 argument. This file will be queried by `<test_id>`, and the resulting data will
