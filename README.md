@@ -1,6 +1,8 @@
 # Modifications from original [SPAT](https://github.com/Santiago-Yu/SPAT)
 
 * Now uses java18
+* Add `run.sh`
+* Add `postprocessing.py` for compiling transformation result
 
 ## java18 and `lib_path`
 
@@ -10,7 +12,42 @@ This path can be found with `whereis java` and tracing to the directory of the
 original binary (instead of a symlink). The library folder is usually a sibling
 directory of the directory that contains the binary.
 
+## `postprocessing.py`
+
+`python3 postprocessing.py -h` contains brief usage information.
+
+This script organizes a benchmark's result into a `jsonl` file. It takes in
+three arguments.
+
+`postprocessing.py` assumes default directory structure for SPAT (ran with
+`./run.sh`:
+
+```
+Benchmark
+└── <benchmark_name>
+    ├── Original
+    └── transformed
+        ├── _<test_id>
+        │   ├── n<original_entry_id>.java
+        │   ├── n<original_entry_id>.java
+        │   ...
+        ├── _<test_id>
+        ...
+
+```
+
+In this case, `benchmark_path` would be `Benchmark/<benchmark_name>`. The script
+will iterate through `transformed` subdirectory of the benchmark path. For each
+`.java` file, it will record an augmented entry, noting its augmentation type
+via the provided `<test_id>`.
+
+Additionally, the script will append extra data from the `metadata_jsonl`
+argument. This file will be queried by `<test_id>`, and the resulting data will
+be added to the augmented entry. In the case of CodeSearchNet, `metadata_jsonl`
+is provided by `preprocess.py`.
+
 # Building jar
+kzz
 
 Eclipse is used to develop and build the project. Click "File > Export" and
 select the option "Runnable JAR file". Use the "Noargs - RuleWriter" launch

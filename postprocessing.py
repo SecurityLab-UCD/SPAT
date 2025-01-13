@@ -9,12 +9,14 @@ import argparse
 
 parser = argparse.ArgumentParser(
         prog='postprocessing',
-        description="Organize a benchmark's original and augmented entries"
-            "into a jsonl file")
-parser.add_argument('metadata_path')
+        description="Organize a benchmark's augmented entries"
+            "into a jsonl file. See `README.md` for details")
+parser.add_argument('metadata_jsonl',
+        help="A jsonl file that contains extra data appended to each "
+                    "entry of the transformed data.")
+parser.add_argument('output_jsonl')
 parser.add_argument('benchmark_path',
                     default='./Benchmarks/extracted_large_train')
-parser.add_argument('output_jsonl')
 args = parser.parse_args()
 
 TRANSFORMED_PATH = Path(args.benchmark_path) / 'transformed'
