@@ -54,7 +54,6 @@ be added to the augmented entry. In the case of CodeSearchNet, `metadata_jsonl`
 is provided by `preprocess.py`.
 
 # Building jar
-kzz
 
 Eclipse is used to develop and build the project. Click "File > Export" and
 select the option "Runnable JAR file". Use the "Noargs - RuleWriter" launch
