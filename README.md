@@ -1,16 +1,21 @@
 # Modifications from original [SPAT](https://github.com/Santiago-Yu/SPAT)
 
 * Now uses java18
-* Add `run.sh` for running SPAT. Usage is in the script itself.
-* Add `postprocessing.py` for compiling transformation result
+* Add [`run.sh`](run.sh) for running SPAT. Usage is in the script itself.
+* Add [`postprocessing.py`](postprocessing.py) for compiling transformation result
 
 ## java18 and `lib_path`
 
-Steps are the same as below except for the argument `PathofJre`. It is replaced
-by the path of `lib`. An example is "/usr/lib/jvm/java-18-openjdk-amd64/lib".
-This path can be found with `whereis java` and tracing to the directory of the
-original binary (instead of a symlink). The library folder is usually a sibling
-directory of the directory that contains the binary.
+Steps to run the jar file are the same as [below](#spat-original-readme) except
+for the argument `PathofJre`. It is replaced by the path of `lib`. An example is
+"/usr/lib/jvm/java-18-openjdk-amd64/lib". This path can be found with `whereis
+java` and tracing to the directory of the original binary (instead of a
+symlink). The library folder is usually a sibling directory of the directory
+that contains the binary.
+
+Note that it is recommended to use [`run.sh`](run.sh) instead of running the jar
+file directly since the former integrates into
+[`postprocessing.py`](postprocessing.py).
 
 ## `postprocessing.py`
 
@@ -56,11 +61,7 @@ select the option "Runnable JAR file". Use the "Noargs - RuleWriter" launch
 configuration and keep everything else as default. Click finish. The resulting
 .jar file should be saved in the "artifacts" folder
 
-# Running
-
-See [run.sh](run.sh).
-
-# SPAT (Original README)
+# SPAT Original README
 Semantic-and-Naturalness Preserving Auto Transformation. This tool is a
 source-to-source transformation tool that can deal with partial code snippets
 (programs without dependency information). The transformed code will be
