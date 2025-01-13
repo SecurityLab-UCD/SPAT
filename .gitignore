@@ -1,6 +1,9 @@
 samplesForTest
 /src/n74.java
 
+# All data
+*.jsonl
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
